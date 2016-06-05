@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Pi-camera spectral response curves by khufkens</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Pi-camera spectral response curves</h1>
+        <p>Spectral response curves for the raspberry pi cameras</p>
+
+        <p class="view"><a href="https://github.com/khufkens/pi-camera-response-curves">View the Project on GitHub <small>khufkens/pi-camera-response-curves</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/khufkens/pi-camera-response-curves/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/khufkens/pi-camera-response-curves/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/khufkens/pi-camera-response-curves">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="raspberry-pi-camera-spectral-response-curves" class="anchor" href="#raspberry-pi-camera-spectral-response-curves" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Raspberry Pi Camera spectral response curves</h1>
+
+<p>These are the spectral response curves for both raspberry pi cameras.</p>
+
+<p>I used sensor spec images to digitize the quantum efficiency of both sensors between 400 and 700 nm. A physical measurement will still be needed to quantify the remaining near infrared spectrum (&gt; 700 nm).</p>
+
+<p>Missing or uncertain edge values, at the beginning and end of each curve, were carried forward or backward when missing (2 values at most). Note that these values are scaled between 0-100%, and true quantum efficiency (QE) will be lower for each sensor.</p>
+
+<h3>
+<a id="raspberry-pi-camera-v1---omnivisoin-ov5647" class="anchor" href="#raspberry-pi-camera-v1---omnivisoin-ov5647" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Raspberry pi camera v1 - Omnivisoin OV5647</h3>
+
+<p><img src="https://raw.githubusercontent.com/khufkens/pi-camera-response-curves/master/Omnivision_OV5647.jpg" alt=""></p>
+
+<h3>
+<a id="raspberry-pi-camera-v2---sony-imx219" class="anchor" href="#raspberry-pi-camera-v2---sony-imx219" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Raspberry pi camera v2 - Sony IMX219</h3>
+
+<p><img src="https://raw.githubusercontent.com/khufkens/pi-camera-response-curves/master/Sony_IMX219.png" alt=""></p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/khufkens">khufkens</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>

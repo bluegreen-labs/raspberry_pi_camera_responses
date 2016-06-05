@@ -1,0 +1,6 @@
+{
+  "name": "Pi-camera spectral response curves",
+  "tagline": "Spectral response curves for the raspberry pi cameras",
+  "body": "# Raspberry Pi Camera spectral response curves\r\n\r\nThese are the spectral response curves for both raspberry pi cameras.\r\n\r\nI used sensor spec images to digitize the quantum efficiency of both sensors between 400 and 700 nm. A physical measurement will still be needed to quantify the remaining near infrared spectrum (> 700 nm).\r\n\r\nMissing or uncertain edge values, at the beginning and end of each curve, were carried forward or backward when missing (2 values at most). Note that these values are scaled between 0-100%, and true quantum efficiency (QE) will be lower for each sensor.\r\n\r\n### Raspberry pi camera v1 - Omnivisoin OV5647\r\n\r\n![](https://raw.githubusercontent.com/khufkens/pi-camera-response-curves/master/Omnivision_OV5647.jpg)\r\n\r\n### Raspberry pi camera v2 - Sony IMX219\r\n\r\n![](https://raw.githubusercontent.com/khufkens/pi-camera-response-curves/master/Sony_IMX219.png)\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
