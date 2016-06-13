@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="exporter-version" content="Evernote Mac 6.7.1 (453575)"/><meta name="author" content="Brandon Swift"/><meta name="created" content="2016-06-13 06:47:23 +0000"/><meta name="source" content="desktop.mac"/><meta name="updated" content="2016-06-13 17:37:57 +0000"/><title>Estimating NIR response of PiCam v2</title></head><body>
+<div>There are no published response curves in the NIR for the Sony IMX219 sensor.</div>
+<div><br/></div>
+<div>Most CMOS imaging sensors have a similar-enough sensitivity function. They turn on around 300nm, peak in sensitivity at about 500-600nm, and then peter out just past 1000nm (aka 1 micron). The nitty-gritty details vary from sensor to sensor, but schematically they have a very standard shape.</div>
+<div><br/></div>
+<div><img src="Estimating%20NIR%20response%20of%20PiCam%20v2.resources/FB060B6C-5394-48FE-BE0A-50E72F284296.png" height="582" width="1124"/></div>
+<div>(source: random pic I found through a google image search for schematic purposes, but it does just happen to show a variety of Sony sensors (ICX and IMX lines) as well as some other brands?)</div>
+<div><br/></div>
+<div>Then we have the actual response functions of the Red, Green, and Blue filters overlaid on the sensor array to give us color information. When we are shown a color response curve, it is almost always the true response of the filters multiplied by the overall sensor response. Just like with the overall response, the details are different here and there, but generically, most have quite similar features.</div>
+<div><br/></div>
+<div>So, in the case of incomplete information, we can use response curves from other sensors to make informed guesses.</div>
+<div><br/></div>
+<div>shapes are similar to other curves I’ve run across in image searches, so we can probably take that one as a decent estimate of what’s going on with the Sony sensor of interest. At any rate, it’s something rather than nothing. Still need someone to do a good measurement of this in real life with one of the unfiltered RasPi Cam v2 sensors.</div>
+<div><br/></div>
+<div><br/></div>
+<div>This curve is pretty close to the visible range shape and relative scales of the RGB visible light response functions</div>
+<div><a href="https://www.matrix-vision.com/manuals/mvBlueCOUGAR-X/CMOS1280b1.png">https://www.matrix-vision.com/manuals/mvBlueCOUGAR-X/CMOS1280b1.png</a></div>
+<div><a href="https://www.matrix-vision.com/GigE-Vision-camera-mvbluecougar-x.html">https://www.matrix-vision.com/GigE-Vision-camera-mvbluecougar-x.html</a></div>
+<div><br/></div>
+<div><a href="https://www.matrix-vision.com/GigE-Vision-camera-mvbluecougar-x.html"><img src="Estimating%20NIR%20response%20of%20PiCam%20v2.resources/AEDCEF28-C3F9-403C-B558-39FEA993E0BD.png" height="382" width="577"/></a></div>
+<div><br/></div>
+<div>and also similar to other vis/NIR response functions in terms of general spectral shape, but not the relative heights of the RGB curves. Here’s one example.</div>
+<div><img src="Estimating%20NIR%20response%20of%20PiCam%20v2.resources/98646A95-3BB8-4F2F-832D-B247F92C1256.png" height="300" width="400"/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div>Ok, so since that first plot looks decently similar in character, I ran it through the <a href="http://arohatgi.info/WebPlotDigitizer/">http://arohatgi.info/WebPlotDigitizer/</a>. Used the automatic tool to extract based on colors, and then hand-modified the CSV tables to copy B points into R and G where those were missing because B was plotted on top. Not a big deal.</div>
+<div><br/></div>
+<div>Then, suck into python and plot these two together…hmm, seems like the characteristics are a little bit different. Instead of trying to spend a lot of time modeling this, we could probably do just as well sketching out the ends of those solid curves by hand. </div>
+<div><img src="Estimating%20NIR%20response%20of%20PiCam%20v2.resources/SonyIMX219_v_randomCMOS.png" height="439" width="951"/></div>
+<div><br/></div>
+<div>Used a nice smooth curve-drawing tool in Inkscape (instead of ugly freehand) to sketch guesses for the NIR parts, export to an image, extract data from these, and make new CSV tables!</div>
+<div><br/></div>
+<div>Hey, I think that looks pretty decent! So, until someone out there makes a real measurement of the NIR response for this sensor, please RELY ON THESE VALUES AT YOUR PERIL.</div>
+<div><img src="Estimating%20NIR%20response%20of%20PiCam%20v2.resources/SonyIMX219withNIRestimate_v_similarCMOS.png" height="561" width="1303"/></div>
+</body></html>
